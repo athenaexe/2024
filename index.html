@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Year Together</title>
+    <style>
+        body {
+            font-family: 'Arial, sans-serif';
+            text-align: center;
+            background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #d33f49;
+            margin-top: 50px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 10px;
+        }
+        .photo-container {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            overflow: hidden;
+        }
+        .photo-text {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .photo-container:hover .photo {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .photo-container:hover .photo-text {
+            opacity: 0;
+        }
+        .footer {
+            margin: 40px 0;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>Our 2024 Together ❤️</h1>
+
+    <!-- Audio Element -->
+    <audio id="backgroundAudio" loop muted>
+        <source src="background.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="gallery">
+        <script>
+            const memoryTitles = [
+                "First discord call", "First date", "Official date", "First bouquet", 
+                "Genting trip", "My fav pic of baby", "Legos and clay date", "Watched baby's vb game", 
+                "Baseball", "First physio", "Third stay together", "Petrosains!", 
+                "Badminton", "First ride", "Kisses love letter", "Physio!", 
+                "Just couldn't get enough of each other", "Lunch at work", "Second ride", "Sunset", 
+                "Random meet", "Can't get enough of each other pt2", "Hospital visit", "Necklace, snooker, and golf!"
+            ];
+
+            for (let i = 0; i < memoryTitles.length; i++) {
+                document.write(`
+                    <div class="photo-container">
+                        <div class="photo-text">${memoryTitles[i]}</div>
+                        <img src="photo${i + 1}.jpg" alt="${memoryTitles[i]}" class="photo">
+                    </div>
+                `);
+            }
+        </script>
+    </div>
+
+    <div class="footer">
+        <p>Thank you for the most memorable year I've ever had. Here's to many more! ✨</p>
+    </div>
+
+    <!-- JavaScript to Ensure Audio Plays on Interaction -->
+    <script>
+        document.addEventListener('click', () => {
+            const audio = document.getElementById('backgroundAudio');
+            if (audio.paused) {
+                audio.muted = false;
+                audio.play();
+            }
+        });
+    </script>
+</body>
+</html>
